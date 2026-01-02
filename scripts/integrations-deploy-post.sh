@@ -5,7 +5,7 @@ if [ "$DEPLOYMENT_GROUP_NAME" == "neha-react" ]; then
  
     echo "Deploying Node.js Backend..."
  
-    cp -R /home/my-temp-dir/. /var/www/html
+    sudo cp -R /home/my-temp-dir/. /var/www/html
     sudo rm -rf /home/my-temp-dir
     sudo chown -R ubuntu:ubuntu /var/www/html
 
