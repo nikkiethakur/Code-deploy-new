@@ -5,13 +5,14 @@ if [ "$DEPLOYMENT_GROUP_NAME" == "neha-react" ]; then
  
     echo "Deploying Node.js Backend..."
  
-    cp -R /home/my-temp-dir/. /home/ubuntu/my-app
+    cp -R /home/my-temp-dir/. /var/www/html
     sudo rm -rf /home/my-temp-dir
-    sudo chown -R ubuntu:ubuntu /home/ubuntu/my-app
+    sudo chown -R ubuntu:ubuntu /var/www/html
 
-    cd /home/ubuntu/my-app
-    npm install
+    cd /var/www/html
+    sudo npm install
  
-    npm run build
+    sudo npm run build
+    sudo pm2 restart all
     echo "Backend deployment completed."
 fi
